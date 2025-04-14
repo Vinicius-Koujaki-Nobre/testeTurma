@@ -33,7 +33,7 @@ function App() {
 
   return (
     <>
-      <Menu option01='Sessão 01' option02='Sessão 02' option03='Mapa'/>
+      <Menu option01='Sessão 01' option02='Sessão 02' option03='Mapa' option04='Média' option05='Imc'/>
       <main>
         <section id='s1'>
           <h2>sessão 1</h2>
