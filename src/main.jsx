@@ -17,6 +17,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Req from './Req';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/imc",
     element: <Imc/>,
+  },
+  {
+    path: "/requirement",
+    element: <Req />,
   }
 ]);
 
