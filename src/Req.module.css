@@ -5,6 +5,14 @@
     color: var(--text);
 }
 
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid white;
+}
+
 .input{
     padding: 5px;
     margin: 10px;

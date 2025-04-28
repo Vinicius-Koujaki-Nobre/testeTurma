@@ -3,6 +3,8 @@ import style from './Req.module.css'
 import { useEffect } from 'react'
 import { api } from './api/api'
 import { Card } from './components/card'
+import { ModalInfo } from './components/modalInfo'
+import Tilt from 'react-parallax-tilt'
 
 export default function Req(){
 
@@ -11,6 +13,7 @@ export default function Req(){
     const [searchName, setSearchName] = useState("")
 
     const [erro, setErro] = useState(false)
+    const [modal, setModal] = useState()
 
     useEffect(() => {
         api.get(`/character/?page=${page}&name=${searchName}`).then((response) => {
@@ -27,6 +30,8 @@ export default function Req(){
 
 
     return(
+        <>
+        {modal !== undefined && <ModalInfo data={data[modal]} close={() => setModal()}/>}
         <section className={style.wrapPage}>
             <h1>Rick and Morty API</h1>
 
@@ -37,11 +42,17 @@ export default function Req(){
 
             <div className={style.wrapCards}>
                 {data.map((item,index) => (
-                    <div key={index}>
-                        <Card name={item.name} image={item.image}/>
+                    <>
+                    <div className={style.card} key={index}>
+                        <Tilt>
+                            <Card name={item.name} image={item.image}/>
+                        </Tilt>
+                    <button onClick={() => setModal(index)}>Info = {item.name}</button>
                     </div>
+                    </>
                 ))}
             </div>
         </section>
+        </>
     )
 }
